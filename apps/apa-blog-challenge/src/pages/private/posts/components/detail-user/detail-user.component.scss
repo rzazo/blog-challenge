@@ -1,0 +1,19 @@
+.item {
+  display: flex;
+
+  .item-title, .item-description {
+    display: inline-block;
+  }
+
+  .item-title {
+    width: 25%;
+  }
+
+  .item-description {
+    width: 75%;
+  }
+}
+
+.more-info {
+  color: darkgray;
+}

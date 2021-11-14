@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "projects": {
+    "apa-bff-blog-challenge": "apps/apa-bff-blog-challenge",
+    "apa-blog-challenge": "apps/apa-blog-challenge",
+    "apa-blog-challenge-e2e": "apps/apa-blog-challenge-e2e"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "root": "apps/apa-blog-challenge-e2e",
+  "sourceRoot": "apps/apa-blog-challenge-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/apa-blog-challenge-e2e/cypress.json",
+        "devServerTarget": "apa-blog-challenge:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "apa-blog-challenge:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/apa-blog-challenge-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["apa-blog-challenge"]
+}
