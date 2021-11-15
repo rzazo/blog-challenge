@@ -1,52 +1,43 @@
-<p-sidebar (onHide)="closeSideBar()"
-           [(visible)]="hasOpen"
-           styleClass="p-sidebar-md">
-    <div class="row item">
-        <span class="item-title">
-            Autor
-        </span>
-        <blockquote class="item-description username blockquote">
-            {{model?.name || 'John Doe'}}
-        </blockquote>
-    </div>
-    <div class="row item">
-        <span class="item-title">
-            Username
-        </span>
-        <blockquote class="item-description blockquote">
-            {{model?.username}}
-        </blockquote>
-    </div>
-    <div class="row item">
-        <span class="item-title">
-            email
-        </span>
-        <blockquote class="item-description blockquote">
-            {{model?.email}}
-        </blockquote>
-    </div>
-    <div class="row item">
-        <span class="item-title">
-            Address
-        </span>
-        <blockquote class="item-description blockquote">
-            {{model?.address.street}} - {{model?.suite}}, {{model?.address.city}}, {{model?.address.zipcode}}
-        </blockquote>
-    </div>
-    <div class="row item">
-        <span class="item-title">
-            Phone number
-        </span>
-        <blockquote class="item-description blockquote">
-            {{model?.phone}}
-        </blockquote>
-    </div>
-    <div class="row item">
-        <span class="item-title">
-            www
-        </span>
-        <blockquote class="item-description blockquote">
-            {{model?.website}}
-        </blockquote>
-    </div>
+<p-sidebar
+  (onHide)="closeSideBar()"
+  [(visible)]="hasOpen"
+  styleClass="p-sidebar-md"
+>
+  <div class="row item">
+    <span class="item-title"> Autor </span>
+    <blockquote class="item-description username blockquote">
+      {{ model?.name || "John Doe" }}
+    </blockquote>
+  </div>
+  <div class="row item">
+    <span class="item-title"> Username </span>
+    <blockquote class="item-description blockquote">
+      {{ model?.username }}
+    </blockquote>
+  </div>
+  <div class="row item">
+    <span class="item-title"> email </span>
+    <blockquote class="item-description blockquote">
+      {{ model?.email }}
+    </blockquote>
+  </div>
+  <div class="row item">
+    <span class="item-title"> Address </span>
+    <blockquote class="item-description blockquote">
+      {{ model?.address.street }} - {{ model?.suite }},
+      {{ model?.address.city }}, {{ model?.address.zipcode }}
+    </blockquote>
+  </div>
+  <div class="row item">
+    <span class="item-title"> Phone number </span>
+    <blockquote class="item-description blockquote">
+      {{ model?.phone }}
+    </blockquote>
+  </div>
+  <div class="row item">
+    <span class="item-title"> www </span>
+    <blockquote class="item-description blockquote">
+      {{ model?.website }}
+    </blockquote>
+  </div>
 </p-sidebar>

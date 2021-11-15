@@ -1,21 +1,17 @@
-import {Component, OnInit} from '@angular/core';
-import {UsersService} from "../sevices/users.service";
+import { Component, OnInit } from "@angular/core";
+import { UsersService } from "../sevices/users.service";
 
 @Component({
-    selector: 'app-users',
-    templateUrl: './users.component.html',
-    styleUrls: ['./users.component.scss']
+  selector: "app-users",
+  templateUrl: "./users.component.html",
+  styleUrls: ["./users.component.scss"],
 })
 export class UsersComponent implements OnInit {
-    public usersList: any;
+  public usersList: any;
 
-    constructor(
-        private readonly usersService: UsersService
-    ) {
-    }
+  constructor(private readonly usersService: UsersService) {}
 
-    public async ngOnInit() {
-      this.usersList = await this.usersService.getUsers();
-    }
-
+  public async ngOnInit() {
+    this.usersList = await this.usersService.getUsers();
+  }
 }

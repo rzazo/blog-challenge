@@ -1,1 +1,1 @@
-export { LoginModule } from './login.module';
+export { LoginModule } from "./login.module";

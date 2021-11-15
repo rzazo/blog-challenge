@@ -1,13 +1,12 @@
 export interface IComments {
-    email: string;
-    body: string;
+  email: string;
+  body: string;
 }
 
 export interface IDetailPost {
-    userName: string;
-    title: string;
-    body: string;
-    user: any;
-    comments: IComments[];
+  userName: string;
+  title: string;
+  body: string;
+  user: any;
+  comments: IComments[];
 }
-

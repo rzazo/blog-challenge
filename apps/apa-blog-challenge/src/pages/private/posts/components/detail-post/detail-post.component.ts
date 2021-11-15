@@ -1,10 +1,10 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {IDetailPost} from "../../interfaces";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { IDetailPost } from "../../interfaces";
 
 @Component({
-  selector: 'detail-post',
-  templateUrl: './detail-post.component.html',
-  styleUrls: ['./detail-post.component.scss']
+  selector: "detail-post",
+  templateUrl: "./detail-post.component.html",
+  styleUrls: ["./detail-post.component.scss"],
 })
 export class DetailPostComponent implements OnInit {
   @Input() public model: IDetailPost | any;
@@ -14,10 +14,9 @@ export class DetailPostComponent implements OnInit {
 
   public detailUser: any;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   public closeSideBar() {
     this.onClose.emit();

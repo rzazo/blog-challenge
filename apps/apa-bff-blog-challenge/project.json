@@ -46,6 +46,34 @@
         "jestConfig": "apps/apa-bff-blog-challenge/jest.config.js",
         "passWithNoTests": true
       }
+    },
+    "build-image": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "docker build -f ./apps/apa-bff-blog-challenge/Dockerfile . -t apa-bff-blog-challenge"
+        ],
+        "parallel": true
+      },
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ]
+    },
+    "deploy": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": ["docker run -p 3333:3333 apa-bff-blog-challenge"],
+        "parallel": true
+      },
+      "dependsOn": [
+        {
+          "target": "build-image",
+          "projects": "self"
+        }
+      ]
     }
   },
   "tags": []

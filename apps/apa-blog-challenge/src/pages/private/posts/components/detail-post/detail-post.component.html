@@ -1,44 +1,43 @@
-<p-sidebar (onHide)="closeSideBar()"
-           [(visible)]="hasOpen"
-           styleClass="p-sidebar-lg">
-    <div class="row item">
-        <figcaption class="item-title blockquote-footer">
-            Autor
-        </figcaption>
-        <blockquote class="item-description username blockquote">
-            {{model?.userName || 'John Doe'}}
-            <span (click)="openDetailUser()"
-                  class="more-info"><small> *more info...</small></span>
-        </blockquote>
-
-    </div>
-    <div class="row item">
-        <figcaption class="item-title blockquote-footer">
-            Title
-        </figcaption>
-        <blockquote class="item-description blockquote">
-            {{model?.title}}
-        </blockquote>
-    </div>
-    <div class="row item">
-        <figcaption class="item-title blockquote-footer">
-            Description
-        </figcaption>
-        <blockquote class="item-description blockquote">
-            {{model?.body}}
-        </blockquote>
-    </div>
-    <div class="row mt-25">
-        <p-card *ngFor="let comment of model?.comments"
-                [header]="comment?.email ?? ''"
-                class="col-6">
-            <ng-template pTemplate="header">
-            </ng-template>
-            <p>{{ comment?.body }}</p>
-        </p-card>
-    </div>
+<p-sidebar
+  (onHide)="closeSideBar()"
+  [(visible)]="hasOpen"
+  styleClass="p-sidebar-lg"
+>
+  <div class="row item">
+    <figcaption class="item-title blockquote-footer">Autor</figcaption>
+    <blockquote class="item-description username blockquote">
+      {{ model?.userName || "John Doe" }}
+      <span (click)="openDetailUser()" class="more-info"
+        ><small> *more info...</small></span
+      >
+    </blockquote>
+  </div>
+  <div class="row item">
+    <figcaption class="item-title blockquote-footer">Title</figcaption>
+    <blockquote class="item-description blockquote">
+      {{ model?.title }}
+    </blockquote>
+  </div>
+  <div class="row item">
+    <figcaption class="item-title blockquote-footer">Description</figcaption>
+    <blockquote class="item-description blockquote">
+      {{ model?.body }}
+    </blockquote>
+  </div>
+  <div class="row mt-25">
+    <p-card
+      *ngFor="let comment of model?.comments"
+      [header]="comment?.email ?? ''"
+      class="col-6"
+    >
+      <ng-template pTemplate="header"> </ng-template>
+      <p>{{ comment?.body }}</p>
+    </p-card>
+  </div>
 </p-sidebar>
 
-<detail-user [hasOpen]="!!detailUser"
-             [model]="detailUser"
-             (onClose)="onCloseDetailUser()"></detail-user>
+<detail-user
+  [hasOpen]="!!detailUser"
+  [model]="detailUser"
+  (onClose)="onCloseDetailUser()"
+></detail-user>

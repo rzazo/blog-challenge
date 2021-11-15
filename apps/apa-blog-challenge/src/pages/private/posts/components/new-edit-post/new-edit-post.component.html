@@ -1,52 +1,60 @@
-<p-dialog (onHide)="resetForm()"
-          [(visible)]="!!model"
-          [modal]="true"
-          [style]="{width: '600px'}"
-          header="Edit post"
-          styleClass="p-fluid">
-    <ng-template pTemplate="content">
-        <div [formGroup]="form"
-             class="form-group">
-            <div class="mb-3">
-                <label class="form-label"
-                       for="username">Username</label>
-                <input [value]="model?.userName"
-                       class="form-control"
-                       formControlName="userName"
-                       id="username"
-                       placeholder="John Doe"
-                       type="text">
-            </div>
-            <div class="mb-3">
-                <label class="form-label"
-                       for="title">Title</label>
-                <input [value]="model?.title"
-                       class="form-control"
-                       formControlName="title"
-                       id="title"
-                       placeholder="Title"
-                       type="text">
-            </div>
-            <div class="mb-3">
-                <label class="form-label"
-                       for="content">Example textarea</label>
-                <textarea [value]="model?.body"
-                          class="form-control"
-                          formControlName="body"
-                          id="content"
-                          rows="6"></textarea>
-            </div>
-        </div>
-    </ng-template>
-    <ng-template pTemplate="footer">
-        <button (click)="resetForm()"
-                class="p-button-danger p-button-text"
-                label="Cancel"
-                pButton
-                pRipple
-                type="button"></button>
-        <p-button (click)="updateSavePost(form.value)"
-                  icon="pi pi-save"
-                  label="Save"></p-button>
-    </ng-template>
+<p-dialog
+  (onHide)="resetForm()"
+  [(visible)]="!!model"
+  [modal]="true"
+  [style]="{ width: '600px' }"
+  header="Edit post"
+  styleClass="p-fluid"
+>
+  <ng-template pTemplate="content">
+    <div [formGroup]="form" class="form-group">
+      <div class="mb-3">
+        <label class="form-label" for="username">Username</label>
+        <input
+          [value]="model?.userName"
+          class="form-control"
+          formControlName="userName"
+          id="username"
+          placeholder="John Doe"
+          type="text"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="title">Title</label>
+        <input
+          [value]="model?.title"
+          class="form-control"
+          formControlName="title"
+          id="title"
+          placeholder="Title"
+          type="text"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="content">Example textarea</label>
+        <textarea
+          [value]="model?.body"
+          class="form-control"
+          formControlName="body"
+          id="content"
+          rows="6"
+        ></textarea>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button
+      (click)="resetForm()"
+      class="p-button-danger p-button-text"
+      label="Cancel"
+      pButton
+      pRipple
+      type="button"
+    ></button>
+    <p-button
+      (click)="updateSavePost(form.value)"
+      icon="pi pi-save"
+      label="Save"
+    ></p-button>
+  </ng-template>
 </p-dialog>
