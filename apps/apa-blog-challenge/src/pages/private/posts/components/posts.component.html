@@ -1,93 +1,108 @@
 <div class="container">
-    <div class="row">
-        <div [formGroup]="filterForm"
-             class="form-group container">
-            <div class="row">
-                <div class="form-group row col-6">
-                    <label class="col-4 col-form-label"
-                           for="filter">Filter by</label>
-                    <div class="col-8">
-                        <input class="form-control col-6"
-                               formControlName="filter"
-                               id="filter"
-                               placeholder="filer by ...."
-                               type="text">
-                    </div>
-                </div>
-            </div>
+  <div class="row">
+    <div [formGroup]="filterForm" class="form-group container">
+      <div class="row">
+        <div class="form-group row col-6">
+          <label class="col-4 col-form-label" for="filter">Filter by</label>
+          <div class="col-8">
+            <input
+              class="form-control col-6"
+              formControlName="filter"
+              id="filter"
+              placeholder="filer by ...."
+              type="text"
+            />
+          </div>
         </div>
+      </div>
     </div>
-    <div class="row">
-        <p-table #tablePosts
-                 [globalFilterFields]="['userId','title','boyd']"
-                 [paginator]="true"
-                 [rowsPerPageOptions]="[10,25,50]"
-                 [rows]="10"
-                 [showCurrentPageReport]="true"
-                 [value]="postsFiltered"
-                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-                 responsiveLayout="scroll"
-                 styleClass="p-datatable-gridlines">
-            <ng-template pTemplate="caption">
-                <div class="p-d-flex">
-                    <span class="p-input-icon-left p-ml-auto">
-                        <i class="pi pi-search"></i>
-                        <input (input)="tablePosts.filterGlobal($any($event.target).value, 'contains')"
-                               pInputText
-                               placeholder="Search by..."
-                               type="text"/>
-                    </span>
-                    <button (click)="openNewOrEditPostDialog({})"
-                            class="p-button-rounded p-button-success float-end"
-                            icon="pi pi-plus"
-                            pButton
-                            pRipple
-                            styleClass="p-button-lg"
-                            type="button"></button>
-
-                </div>
-            </ng-template>
-            <ng-template pTemplate="header">
-                <tr>
-                    <th pSortableColumn="title"
-                        style="min-width:200px">
-                        Title
-                        <p-sortIcon field="title"></p-sortIcon>
-                    </th>
-                    <th pSortableColumn="body">
-                        Content
-                        <p-sortIcon field="body"></p-sortIcon>
-                    </th>
-                    <th style="min-width:120px"></th>
-                </tr>
-            </ng-template>
-            <ng-template let-post
-                         pTemplate="body">
-                <tr>
-                    <td>{{post.title}}</td>
-                    <td>{{post.body}}</td>
-                    <td class="table-actions">
-                        <p-button (click)="openNewOrEditPostDialog(post)"
-                                  icon="pi pi-pencil"></p-button>
-                        <p-button (click)="openDetailPost(post.id)"
-                                  icon="pi pi-eye"></p-button>
-                    </td>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="paginatorleft">
-                <p-button icon="pi pi-plus"
-                          styleClass="p-button-text"
-                          type="button"></p-button>
-            </ng-template>
-        </p-table>
-    </div>
+  </div>
+  <div class="row">
+    <p-table
+      #tablePosts
+      [globalFilterFields]="['userId', 'title', 'body']"
+      [paginator]="true"
+      [rowsPerPageOptions]="[10, 25, 50]"
+      [rows]="10"
+      [showCurrentPageReport]="true"
+      [value]="postsFiltered"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+      responsiveLayout="scroll"
+      styleClass="p-datatable-gridlines"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              (input)="
+                tablePosts.filterGlobal($any($event.target).value, 'contains')
+              "
+              pInputText
+              placeholder="Search by..."
+              type="text"
+            />
+          </span>
+          <button
+            (click)="openNewOrEditPostDialog({})"
+            class="p-button-rounded p-button-success float-end"
+            icon="pi pi-plus"
+            pButton
+            pRipple
+            styleClass="p-button-lg"
+            type="button"
+          ></button>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="title" style="min-width: 200px">
+            Title
+            <p-sortIcon field="title"></p-sortIcon>
+          </th>
+          <th pSortableColumn="body">
+            Content
+            <p-sortIcon field="body"></p-sortIcon>
+          </th>
+          <th style="min-width: 120px"></th>
+        </tr>
+      </ng-template>
+      <ng-template let-post pTemplate="body">
+        <tr>
+          <td>{{ post.title }}</td>
+          <td>{{ post.body }}</td>
+          <td class="table-actions">
+            <p-button
+              (click)="openNewOrEditPostDialog(post)"
+              icon="pi pi-pencil"
+            ></p-button>
+            <p-button
+              (click)="openDetailPost(post.id)"
+              icon="pi pi-eye"
+            ></p-button>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="paginatorleft">
+        <p-button
+          icon="pi pi-plus"
+          styleClass="p-button-text"
+          type="button"
+        ></p-button>
+      </ng-template>
+    </p-table>
+  </div>
 </div>
 
-<new-edit-post (onReset)="closeModal()"
-               (onSuccess)="onCreateOrEditSuccess($event)"></new-edit-post>
+<new-edit-post
+  (onReset)="closeModal()"
+  (onSuccess)="onCreateOrEditSuccess($event)"
+></new-edit-post>
 
-<detail-post [model]="detailPost"
-             (onClose)="closeDetailPost()"
-             [hasOpen]="!!detailPost"></detail-post>
+<detail-post
+  [model]="detailPost"
+  (onClose)="closeDetailPost()"
+  [hasOpen]="!!detailPost"
+></detail-post>
 
 <p-toast></p-toast>

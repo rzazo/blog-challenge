@@ -1,1 +1,1 @@
-export { NoContentModule } from './no-content.module';
+export { NoContentModule } from "./no-content.module";

@@ -18,7 +18,14 @@
           "apps/apa-blog-challenge/src/favicon.ico",
           "apps/apa-blog-challenge/src/assets"
         ],
-        "styles": ["apps/apa-blog-challenge/src/styles.scss"],
+        "styles": [
+          "node_modules/primeng/resources/themes/saga-blue/theme.css",
+          "node_modules/primeng/resources/primeng.min.css",
+          "node_modules/primeicons/primeicons.css",
+          "node_modules/primeflex/primeflex.css",
+          "node_modules/bootstrap/dist/css/bootstrap.css",
+          "apps/apa-blog-challenge/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -88,6 +95,34 @@
         "jestConfig": "apps/apa-blog-challenge/jest.config.js",
         "passWithNoTests": true
       }
+    },
+    "build-image": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "docker build -f ./apps/apa-blog-challenge/Dockerfile . -t apa-blog-challenge"
+        ],
+        "parallel": true
+      },
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ]
+    },
+    "deploy": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": ["docker run -p 80:80 apa-blog-challenge"],
+        "parallel": true
+      },
+      "dependsOn": [
+        {
+          "target": "build-image",
+          "projects": "self"
+        }
+      ]
     }
   },
   "tags": []

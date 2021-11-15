@@ -1,7 +1,8 @@
 .item {
   display: flex;
 
-  .item-title, .item-description {
+  .item-title,
+  .item-description {
     display: inline-block;
   }
 

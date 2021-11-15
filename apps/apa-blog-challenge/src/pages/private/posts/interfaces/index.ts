@@ -1,1 +1,1 @@
-export {IDetailPost} from './idetail-post';
+export { IDetailPost } from "./idetail-post";

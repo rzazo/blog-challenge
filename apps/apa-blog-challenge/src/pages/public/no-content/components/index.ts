@@ -1,1 +1,1 @@
-export { NoContentComponent } from './no-content.component';
+export { NoContentComponent } from "./no-content.component";

@@ -1,16 +1,17 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { NoContentComponent } from './no-content.component';
+import { NoContentComponent } from "./no-content.component";
+import { NO_ERRORS_SCHEMA } from "@angular/core";
 
-describe('NoContentComponent', () => {
+describe("NoContentComponent", () => {
   let component: NoContentComponent;
   let fixture: ComponentFixture<NoContentComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NoContentComponent ]
-    })
-    .compileComponents();
+      declarations: [NoContentComponent],
+      schemas: [NO_ERRORS_SCHEMA],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +20,7 @@ describe('NoContentComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

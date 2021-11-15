@@ -1,16 +1,17 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { DetailUserComponent } from './detail-user.component';
+import { DetailUserComponent } from "./detail-user.component";
+import { NO_ERRORS_SCHEMA } from "@angular/core";
 
-describe('DetailPostComponent', () => {
+describe("DetailPostComponent", () => {
   let component: DetailUserComponent;
   let fixture: ComponentFixture<DetailUserComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DetailUserComponent ]
-    })
-    .compileComponents();
+      declarations: [DetailUserComponent],
+      schemas: [NO_ERRORS_SCHEMA],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +20,7 @@ describe('DetailPostComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

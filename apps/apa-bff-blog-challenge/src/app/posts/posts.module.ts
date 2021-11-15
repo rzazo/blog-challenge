@@ -1,26 +1,15 @@
-import {Module} from "@nestjs/common";
-import {PostsController} from "./controllers/posts.controller";
-import {PostsService} from "./services/posts.service";
-import {UsersModule} from "../users/users.module";
-import {HttpModule} from "@nestjs/axios";
-import {CommentsModule} from "../comments/comments.module";
+import { HttpModule, Module } from "@nestjs/common";
+import { PostsController } from "./posts.controller";
+import { PostsService } from "./posts.service";
+import { UsersModule } from "../users/users.module";
+import { CommentsModule } from "../comments/comments.module";
+import { CommentsService } from "../comments/comments.service";
+import { UsersService } from "../users/users.service";
 
 @Module({
-    imports: [
-        HttpModule,
-        
-        UsersModule,
-        CommentsModule
-    ],
-    controllers: [
-        PostsController
-    ],
-    providers: [
-        PostsService
-    ],
-    exports: [
-        PostsService
-    ]
+  imports: [HttpModule, UsersModule, CommentsModule],
+  controllers: [PostsController],
+  providers: [PostsService, CommentsService, UsersService],
+  exports: [PostsService],
 })
-export class PostsModule {
-}
+export class PostsModule {}

@@ -1,20 +1,20 @@
 module.exports = {
-  displayName: 'apa-blog-challenge',
-  preset: '../../jest.preset.js',
-  setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
+  displayName: "apa-blog-challenge",
+  preset: "../../jest.preset.js",
+  setupFilesAfterEnv: ["<rootDir>/src/test-setup.ts"],
   globals: {
-    'ts-jest': {
-      tsconfig: '<rootDir>/tsconfig.spec.json',
-      stringifyContentPathRegex: '\\.(html|svg)$',
+    "ts-jest": {
+      tsconfig: "<rootDir>/tsconfig.spec.json",
+      stringifyContentPathRegex: "\\.(html|svg)$",
     },
   },
-  coverageDirectory: '../../coverage/apps/apa-blog-challenge',
+  coverageDirectory: "../../coverage/apps/apa-blog-challenge",
   transform: {
-    '^.+\\.(ts|js|html)$': 'jest-preset-angular',
+    "^.+\\.(ts|js|html)$": "jest-preset-angular",
   },
   snapshotSerializers: [
-    'jest-preset-angular/build/serializers/no-ng-attributes',
-    'jest-preset-angular/build/serializers/ng-snapshot',
-    'jest-preset-angular/build/serializers/html-comment',
+    "jest-preset-angular/build/serializers/no-ng-attributes",
+    "jest-preset-angular/build/serializers/ng-snapshot",
+    "jest-preset-angular/build/serializers/html-comment",
   ],
 };

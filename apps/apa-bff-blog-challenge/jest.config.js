@@ -1,15 +1,15 @@
 module.exports = {
-  displayName: 'apa-bff-blog-challenge',
-  preset: '../../jest.preset.js',
+  displayName: "apa-bff-blog-challenge",
+  preset: "../../jest.preset.js",
   globals: {
-    'ts-jest': {
-      tsconfig: '<rootDir>/tsconfig.spec.json',
+    "ts-jest": {
+      tsconfig: "<rootDir>/tsconfig.spec.json",
     },
   },
-  testEnvironment: 'node',
+  testEnvironment: "node",
   transform: {
-    '^.+\\.[tj]s$': 'ts-jest',
+    "^.+\\.[tj]s$": "ts-jest",
   },
-  moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../coverage/apps/apa-bff-blog-challenge',
+  moduleFileExtensions: ["ts", "js", "html"],
+  coverageDirectory: "../../coverage/apps/apa-bff-blog-challenge",
 };
